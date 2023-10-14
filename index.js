@@ -12,6 +12,12 @@ dbConnection();
 // CORS
 app.use(cors())
 
+// Add this middleware function before your routes
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  next();
+});
+
 // Directorio Público
 app.use( express.static('public') );
 
@@ -21,6 +27,12 @@ app.use( express.json() );
 // Rutas
 app.use('/api/auth', require('./routes/auth') );
 app.use('/api/events', require('./routes/events') );
+
+
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
 
 
 
