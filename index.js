@@ -14,7 +14,7 @@ app.use(cors())
 
 // Add this middleware function before your routes
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.setHeader('Access-Control-Allow-Origin', 'https://calendar-app-brshnsk.netlify.app');
   next();
 });
 
